@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CountryController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin')->group(function () {
@@ -12,6 +14,14 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::resource('countries', CountryController::class)
+        ->except(['show'])
+        ->names('admin.countries');
+
+    Route::resource('categories', CategoryController::class)
+        ->except(['show'])
+        ->names('admin.categories');
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('admin.logout');
 });

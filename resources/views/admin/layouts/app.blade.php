@@ -50,6 +50,20 @@
                             <p>Главная</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.countries.index') }}"
+                           class="nav-link {{ request()->routeIs('admin.countries.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-globe"></i>
+                            <p>Страны</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.categories.index') }}"
+                           class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tags"></i>
+                            <p>Жанры</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -64,6 +78,12 @@
 
         <section class="content">
             <div class="container-fluid">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 @yield('content')
             </div>
         </section>
