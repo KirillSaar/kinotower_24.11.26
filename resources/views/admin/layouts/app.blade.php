@@ -71,6 +71,27 @@
                             <p>Фильмы</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.users.index') }}"
+                           class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Пользователи</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.reviews.index') }}"
+                           class="nav-link {{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-comments"></i>
+                            <p>Отзывы</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.ratings.index') }}"
+                           class="nav-link {{ request()->routeIs('admin.ratings.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Оценки</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
